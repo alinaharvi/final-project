@@ -22,36 +22,39 @@
   </head>
   <body>
     <div class="city">
-      <form id="citySearch">
+      <form id="citySearch" class="forms">
         <input
           type="text"
-          autofocus="on"
-          placeholder="Weather in..."
+          placeholder="My city"
           autocomplete="off"
           id="text-input"
         />
-        <input type="submit" value="search" />
+        <button type="submit" value="search" class="btn btn-light">
+          Search
+        </button>
       </form>
     </div>
     <h1>Kyiv</h1>
     <br />
     <div class="blur"></div>
-
-    <h2>13°</h2>
+    <div class="whole">
+      <span class="tem"></span>
+      <span class="unit"
+        ><a href="#" id="celcium-link" class="active">°C</a> |
+        <a href="#" id="fahr">°F</a></span
+      >
+    </div>
     <h3>Saturday</h3>
     <p id="localTime" class="local"></p>
     <br />
 
-    <img
-      src="https://images.vexels.com/media/users/3/240781/isolated/lists/aac5704938d3b8bbbdf47b805afd8f55-single-cloud-icon.png"
-    />
-    <p>Cloudy</p>
+    <img id="icon" ; />
+    <p id="description"></p>
     <br />
 
     <div class="details">
-      <p>Precipitation: 0%</p>
-      <p>Humidity: 37%</p>
-      <p>Wind: 21 km/h</p>
+      <p>Humidity: <span id="humidity"></span>%</p>
+      <p>Wind: <span id="wind"></span> km/H</p>
     </div>
     <br />
     <div class="container">
@@ -87,8 +90,8 @@
       <button type="button" class="btn btn-light">Change city</button>
     </div>
     <div class="code">
-      <a href="https://github.com/alinaharvi/final-project">Open-source code</a
-      >by Alina Havriushenko
+      <a href="https://github.com/alinaharvi/final-project">Open-source code</a>
+      " by Alina Havriushenko"
     </div>
   </body>
   <script src="weather.js"></script>

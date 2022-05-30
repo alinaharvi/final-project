@@ -6,7 +6,7 @@ h1 {
   text-align: center;
 }
 
-h2 {
+.tem {
   font-size: 70px;
   text-align: center;
   color: beige;
@@ -46,13 +46,13 @@ h3 {
 }
 
 img {
-  width: 80px;
-  opacity: 0.33;
+  width: 120px;
   display: block;
   margin: 0 auto;
 }
 p {
   text-align: center;
+  text-transform: capitalize;
 }
 .search {
   border: none;
@@ -84,4 +84,28 @@ p {
 }
 form {
   display: inline-block;
+}
+
+.unit {
+  color: beige;
+  font-size: 15px;
+  line-height: 36px;
+  font-weight: bold;
+  line-height: 1;
+  top: -37px;
+  position: relative;
+}
+.whole {
+  text-align: center;
+}
+
+.active {
+  color: beige;
+  cursor: default;
+  text-decoration: none;
+}
+
+.active:hover {
+  text-decoration: none;
+  color: beige;
 }
