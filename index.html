@@ -21,77 +21,59 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <div class="city">
-      <form id="citySearch" class="forms">
-        <input
-          type="text"
-          placeholder="My city"
-          autocomplete="off"
-          id="text-input"
-        />
-        <button type="submit" value="search" class="btn btn-light">
-          Search
-        </button>
-      </form>
-    </div>
-    <h1>Kyiv</h1>
-    <br />
-    <div class="blur"></div>
-    <div class="whole">
-      <span class="tem"></span>
-      <span class="unit"
-        ><a href="#" id="celcium-link" class="active">°C</a> |
-        <a href="#" id="fahr">°F</a></span
-      >
-    </div>
-    <h3>Saturday</h3>
-    <p id="localTime" class="local"></p>
-    <br />
-
-    <img id="icon" ; />
-    <p id="description"></p>
-    <br />
-
-    <div class="details">
-      <p>Humidity: <span id="humidity"></span>%</p>
-      <p>Wind: <span id="wind"></span> km/H</p>
-    </div>
-    <br />
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          Sun
-          <p class="day">11°</p>
-        </div>
-        <div class="col">
-          Mon
-          <p class="day">16°</p>
-        </div>
-        <div class="col">
-          Tue
-          <p class="day">21°</p>
-        </div>
-        <div class="col">
-          Wed
-          <p class="day">23°</p>
-        </div>
-        <div class="col">
-          Thu
-          <p class="day">18°</p>
-        </div>
-        <div class="col">
-          Fri
-          <p class="day">21°</p>
-          <i class="fa-solid fa-sun"></i>
-        </div>
+    <div class="weather-app-wrapper">
+      <div class="city">
+        <form id="citySearch" class="forms">
+          <input
+            type="text"
+            placeholder="My city"
+            autocomplete="off"
+            id="text-input"
+          />
+          <button type="submit" value="search" class="btn btn-light">
+            Search
+          </button>
+        </form>
       </div>
-    </div>
-    <div class="center">
-      <button type="button" class="btn btn-light">Change city</button>
-    </div>
-    <div class="code">
-      <a href="https://github.com/alinaharvi/final-project">Open-source code</a>
-      " by Alina Havriushenko"
+      <h1>Kyiv</h1>
+      <br />
+      <div class="blur"></div>
+      <div class="whole">
+        <span class="tem"></span>
+        <span class="unit"
+          ><a href="#" id="celcium-link" class="active">°C</a> |
+          <a href="#" id="fahr">°F</a></span
+        >
+      </div>
+      <h3>Saturday</h3>
+      <p id="localTime" class="local"></p>
+      <br />
+
+      <img id="icon" ; />
+      <p id="description"></p>
+      <br />
+
+      <div class="details">
+        <p>Humidity: <span id="humidity"></span>%</p>
+        <p>Wind: <span id="wind"></span> km/H</p>
+      </div>
+      <br />
+
+      <br />
+      <div class="container" id="forecast"></div>
+      <br />
+
+      <div class="center">
+        <button type="button" class="btn btn-light">Change city</button>
+      </div>
+      <br />
+
+      <div class="code">
+        <a href="https://github.com/alinaharvi/final-project"
+          >Open-source code</a
+        >
+        by Alina Havriushenko
+      </div>
     </div>
   </body>
   <script src="weather.js"></script>

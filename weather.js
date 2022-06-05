@@ -16,6 +16,42 @@ let hours = now.getHours();
 let minutes = now.getMinutes();
 times.innerHTML = `${hours}:${minutes}`;
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Mon", "Thu", "Wed", "Thu"];
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+          <div class="forecast-day">${formatDay(forecastDay.dt)}</div>
+          <img class="icons-forecast" src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png" width="15" />
+          <div class="max-min">
+            <span class="day-max">${Math.round(forecastDay.temp.max)}°</span>
+            <span class="day-min">${Math.round(forecastDay.temp.min)}°</span>
+          </div>
+      </div>`;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
 function enterCity(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#text-input");
@@ -24,6 +60,14 @@ function enterCity(event) {
   let apiKey = "b633401dd2448b7cb3d3f72a8fcfd993";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=b633401dd2448b7cb3d3f72a8fcfd993&units=metric`;
   axios.get(url).then(showTemperature);
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+
+  let apiKey = `b633401dd2448b7cb3d3f72a8fcfd993`;
+  let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(url).then(displayForecast);
 }
 
 function showTemperature(response) {
@@ -42,6 +86,8 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   cTemp = response.data.main.temp;
+
+  getForecast(response.data.coord);
 }
 
 function showFahrenheit(event) {
@@ -71,3 +117,5 @@ fahrenheitLink.addEventListener("click", showFahrenheit);
 
 let celcLink = document.querySelector("#celcium-link");
 celcLink.addEventListener("click", showCelcium);
+
+enterCity("New York");
